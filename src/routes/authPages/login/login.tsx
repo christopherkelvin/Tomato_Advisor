@@ -9,6 +9,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { styles } from "./login.styles";
+import LoaderPage from "../../../components/loaderPage/loaderPage";
 export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -17,11 +18,7 @@ export default function Login() {
     }, 2000);
   }, []);
   if (isLoading) {
-    return (
-      <View style={styles.container}>
-        <Text>Loading ................</Text>
-      </View>
-    );
+    return <LoaderPage />;
   }
   return (
     <View style={styles.container}>

@@ -1,9 +1,13 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./loaderPage.styles";
 export default function LoaderPage() {
   return (
     <View style={styles.container}>
-      <Text>Loading ................</Text>
+      <View style={styles.blur} />
+      <Image source={require("../../../assets/Tomato.png")} />
     </View>
   );
 }
+
+{/* <Image source={require("../../../assets/Tomato.png")} />
+<Text>Loading ................</Text> */}

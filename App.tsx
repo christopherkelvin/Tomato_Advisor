@@ -5,13 +5,26 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from "react-native";
 import "./global.css";
 import React from "react";
+import LinearGradient from "react-native-linear-gradient";
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.blur}></View>
+      <View style={styles.blur}>
+        <Image
+          style={styles.blurImage1}
+          source={require("./assets/Tomato.png")}
+        />
+      </View>
+      <View style={styles.blur1}>
+        <Image
+          style={styles.blurImage1}
+          source={require("./assets/Tomato.png")}
+        />
+      </View>
       <Text style={styles.text}>Login Here</Text>
       <TextInput placeholder="Enter your email" style={styles.textInput} />
       <TextInput placeholder="Enter your password" style={styles.textInput} />
@@ -30,16 +43,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ff3333",
-    // alignItems: "center",
     padding: 30,
     justifyContent: "center",
+    position: "relative",
   },
   text: {
     fontSize: 25,
     textAlign: "left",
     color: "black",
     marginBottom: 20,
-    // marginLeft: -200,
     fontWeight: "bold",
   },
   textInput: {
@@ -60,14 +72,27 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#FFDCD1",
-    paddingVertical: 12,
+    paddingVertical: 8,
     paddingHorizontal: 70,
-    borderRadius: 20,
+    borderRadius: 18,
   },
   buttonText: {
     fontSize: 30,
     fontWeight: "bold",
-    color:'#FF3333'
+    color: "#FF3333",
   },
-  blur: {},
+  blur: {
+    position: "absolute",
+    top: 80,
+    right: 60,
+  },
+  blur1: {
+    position: "absolute",
+    bottom: 200,
+    left: 60,
+  },
+  blurImage1: {
+    height: 80,
+    width: 80,
+  },
 });

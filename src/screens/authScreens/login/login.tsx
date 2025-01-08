@@ -12,15 +12,26 @@ import { StatusBar } from "expo-status-bar";
 import { styles } from "./login.styles";
 import LoaderPage from "../../../components/loaderPage/loaderPage";
 const tomatoImage = require("../../../../assets/Tomato.png");
+
+
 export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [errors, setErrors] = useState({});
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
   }, []);
+
+  const validate = () => {
+    let errors:{} = {};
+
+    if(!email) errors.email = "Email is required";
+    if (!password) errors.password = "Password is required";
+}
+
   if (isLoading) {
     return <LoaderPage />;
   }

@@ -11,9 +11,9 @@ import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { styles } from "./login.styles";
 import LoaderPage from "../../../components/loaderPage/loaderPage";
+import { Error } from "../../../types/auth";
+
 const tomatoImage = require("../../../../assets/Tomato.png");
-
-
 export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState<string>("");
@@ -26,7 +26,7 @@ export default function Login() {
   }, []);
 
   const validate = () => {
-    let errors:{} = {};
+    let errors: Error = {};
 
     if(!email) errors.email = "Email is required";
     if (!password) errors.password = "Password is required";
@@ -59,7 +59,7 @@ export default function Login() {
       />
       <Text style={styles.forget}>Don't have an account ?</Text>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} >
+        <TouchableOpacity style={styles.button} onPress={validate}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </View>

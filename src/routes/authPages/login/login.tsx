@@ -14,7 +14,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading(true);
+      setIsLoading(false);
     }, 2000);
   }, []);
   if (isLoading) {

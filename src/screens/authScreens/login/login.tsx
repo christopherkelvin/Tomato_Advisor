@@ -8,12 +8,11 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { StatusBar } from "expo-status-bar";
+
 import { styles } from "./login.styles";
 import LoaderPage from "../../../components/loaderPage/loaderPage";
 import { Error } from "../../../types/auth";
-
-const tomatoImage = require("../../../../assets/Tomato.png");
+import { AuthWrapper } from "../authWrapper";
 export default function Login() {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState<string>("");
@@ -36,7 +35,6 @@ export default function Login() {
   const submitForm = () => {
     const validated = validate();
     if (validated) {
-          // API call to login
           console.log("Login successful", email, password);
         }
   }
@@ -45,13 +43,7 @@ export default function Login() {
     return <LoaderPage />;
   }
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <View style={styles.blur}>
-        <Image style={styles.blurImage1} source={tomatoImage} />
-      </View>
-      <View style={styles.blur1}>
-        <Image style={styles.blurImage1} source={tomatoImage} />
-      </View>
+    <AuthWrapper>
       <Text style={styles.text}>Login Here</Text>
       <TextInput
         placeholder="Enter your email"
@@ -74,7 +66,6 @@ export default function Login() {
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
       </View>
-      <StatusBar style="auto" />
-    </KeyboardAvoidingView>
+    </AuthWrapper>
   );
 }

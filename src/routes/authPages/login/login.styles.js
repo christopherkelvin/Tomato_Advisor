@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: "#FFDCD1",
-    paddingVertical: 8,
+    paddingVertical: '2%',
     paddingHorizontal: 70,
     borderRadius: 18,
   },
@@ -48,8 +48,9 @@ export const styles = StyleSheet.create({
   },
   blur1: {
     position: "absolute",
-    bottom: 200,
+    bottom: '20%',
     left: 60,
+    opacity: 0.7,
   },
   blurImage1: {
     height: 80,

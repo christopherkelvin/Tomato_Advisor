@@ -18,20 +18,20 @@ export const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.1)",
   },
   largeImage: {
-    width: 300,
-    height: 300,
+    width: '70%',
+    height: '30%',
     alignSelf: "center",
   },
   smallImage1: {
     position: "absolute",
     width: tomatoSize,
     height: tomatoSize,
-    bottom: 250,
+    bottom: '30%',
     left: 50,
     opacity: 0.5,
   },
   smallImage2: {
-    top: 100,
+    top: '10%',
     right: 50,
     position: "absolute",
     width: tomatoSize,
@@ -47,12 +47,12 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   textPosition1: {
-    bottom: 220,
-    left: 160,
+    bottom: '28%',
+    left: '45%',
   },
   textPosition: {
-    bottom: 250,
-    left: 150,
+    bottom: '32%',
+    left: '40%',
   },
   welcomeText: {
     position: "absolute",

@@ -21,11 +21,15 @@ export default function Login() {
     setPassword,
     errors,
     submitForm,
+    setErrors,
+    handleInputChange
   } = useLoginHook();
 
   if (isLoading) {
     return <LoaderPage />;
   }
+ 
+
   return (
     <AuthWrapper>
       <Text style={styles.text}>Login Here</Text>
@@ -33,7 +37,7 @@ export default function Login() {
         placeholder="Enter your email"
         value={email}
         style={styles.textInput}
-        onChangeText={setEmail}
+        onChangeText={handleInputChange(setEmail)}
       />
       {errors.email && <Text style={styles.error}>{errors.email}</Text>}
       <TextInput

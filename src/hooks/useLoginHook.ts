@@ -1,6 +1,7 @@
 import { Error } from "../types/auth";
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
+type Setter<T> = Dispatch<SetStateAction<T>>;
 export const useLoginHook = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState<string>("");
@@ -26,6 +27,10 @@ export const useLoginHook = () => {
       console.log("Login successful", email, password);
     }
   };
+   const handleInputChange = (setter:Setter<string>) => (value: string) => {
+     setter(value);
+     if (errors) setErrors({});
+   };
   return {
     isLoading,
     email,
@@ -34,5 +39,7 @@ export const useLoginHook = () => {
     setPassword,
     errors,
     submitForm,
+    setErrors,
+    handleInputChange
   };
 };

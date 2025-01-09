@@ -1,4 +1,4 @@
-import { styles } from "./login/login.styles";
+import { styles } from "./authWrapper.styles";
 import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,

@@ -1,4 +1,4 @@
-import { Error } from "../../../types/auth";
+import { Error } from "../types/auth";
 import { useEffect, useState } from "react";
 
 export const useLoginHook = () => {

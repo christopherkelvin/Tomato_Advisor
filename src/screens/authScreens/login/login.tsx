@@ -10,7 +10,7 @@ import {
 import { styles } from "./login.styles";
 import LoaderPage from "../../../components/loaderPage/loaderPage";
 import { AuthWrapper } from "../authWrapper";
-import { useLoginHook  } from "./useLoginHook";
+import { useLoginHook } from "../../../hooks/useLoginHook";
 
 export default function Login() {
   const {

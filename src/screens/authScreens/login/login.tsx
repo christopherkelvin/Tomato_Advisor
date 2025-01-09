@@ -10,7 +10,8 @@ import {
 import { styles } from "./login.styles";
 import LoaderPage from "../../../components/loaderPage/loaderPage";
 import { AuthWrapper } from "../authWrapper";
-import { UseLoginHook as useLoginHook } from "./useLoginHook";
+import { useLoginHook  } from "./useLoginHook";
+
 export default function Login() {
   const {
     isLoading,
@@ -21,6 +22,7 @@ export default function Login() {
     errors,
     submitForm,
   } = useLoginHook();
+
   if (isLoading) {
     return <LoaderPage />;
   }

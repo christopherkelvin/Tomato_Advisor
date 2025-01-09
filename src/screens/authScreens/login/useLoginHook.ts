@@ -1,7 +1,7 @@
 import { Error } from "../../../types/auth";
 import { useEffect, useState } from "react";
 
-export const UseLoginHook = () => {
+export const useLoginHook = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");

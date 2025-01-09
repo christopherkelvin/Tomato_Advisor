@@ -28,6 +28,8 @@ export const useLoginHook = () => {
     const validated = validate();
     if (validated) {
       console.log("Login successful", email, password);
+      setEmail("")
+      setPassword("")
     }
   };
    const handleInputChange = (setter:Setter<string>) => (value: string) => {

@@ -11,8 +11,18 @@ import { styles } from "./login.styles";
 import LoaderPage from "../../../components/loaderPage/loaderPage";
 import { AuthWrapper } from "../authWrapper";
 import { useLoginHook } from "../../../hooks/useLoginHook";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import {AuthStackParamList} from "../../../types/auth";
 
-export default function Login() {
+type LoginScreenNavigationProp = NativeStackNavigationProp<
+  AuthStackParamList,
+  "Login"
+>;
+
+interface LoginProps {
+  navigation: LoginScreenNavigationProp;
+}
+export const Login:React.FC<LoginProps> = ({navigation})=> {
   const {
     isLoading,
     email,
@@ -21,7 +31,6 @@ export default function Login() {
     setPassword,
     errors,
     submitForm,
-    setErrors,
     handleInputChange
   } = useLoginHook();
 
@@ -48,7 +57,7 @@ export default function Login() {
         onChangeText={setPassword}
       />
       {errors.password && <Text style={styles.error}>{errors.password}</Text>}
-      <Text style={styles.forget}>Don't have an account ?</Text>
+      <Text style={styles.forget} onPress={()=>navigation.navigate('Register')} >Don't have an account ?</Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={submitForm}>
           <Text style={styles.buttonText}>Login</Text>

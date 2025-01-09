@@ -17,7 +17,10 @@ export const useLoginHook = () => {
     let errors: Error = {};
     if (!email) errors.email = "Email is required";
     if (!password) errors.password = "Password is required";
-
+    if (email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) errors.email = "Invalid email format";
+    }
     setErrors(errors);
     return Object.keys(errors).length === 0;
   };

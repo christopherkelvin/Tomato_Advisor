@@ -46,7 +46,7 @@ export default function Register({ navigation }: any) {
         </Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={handleRegister}>
-            <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText}>Register</Text>
           </TouchableOpacity>
         </View>
       </View>

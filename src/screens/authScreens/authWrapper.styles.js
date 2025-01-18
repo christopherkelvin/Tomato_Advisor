@@ -1,25 +1,32 @@
 import { StyleSheet } from "react-native";
+const radius = 29;
+export const originalColor = "#026a75";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ff3333",
-    padding: 30,
-    justifyContent: "center",
+    backgroundColor: originalColor,
     position: "relative",
   },
-  blur: {
-    position: "absolute",
-    top: 80,
-    right: 60,
+  titlecolor: {
+    marginLeft: "10%",
+    color: "white",
   },
-  blur1: {
-    position: "absolute",
-    bottom: "20%",
-    left: 60,
-    opacity: 0.7,
+  Title: {
+    fontWeight: 800,
+    fontSize: 50,
+    marginTop: "25%",
   },
-  blurImage1: {
-    height: 80,
-    width: 80,
+  subTitle: {
+    fontSize: 20,
+    marginLeft: "10%",
+  },
+  content: {
+    marginTop: "57%",
+    width: "100%",
+    position: "absolute",
+    height: "100%",
+    backgroundColor: "#e9e9e9",
+    borderTopRightRadius: radius,
+    borderTopLeftRadius: radius,
   },
 });

@@ -15,19 +15,12 @@ interface AuthWrapperProps {
     children: ReactNode;
 }
 
-const tomatoImage = require("../../../assets/Tomato.png");
-
-
 export const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
   return (
-    <KeyboardAvoidingView behavior="padding" style={styles.container}>
-      <View style={styles.blur}>
-        <Image style={styles.blurImage1} source={tomatoImage} />
-      </View>
-      <View style={styles.blur1}>
-        <Image style={styles.blurImage1} source={tomatoImage} />
-      </View>
-      {children}
+    <KeyboardAvoidingView style={styles.container}>
+      <Text style={[styles.Title, styles.titlecolor]}>Hello !</Text>
+      <Text style={[styles.titlecolor, styles.subTitle]}>Welcome to the AI world</Text>
+      <View style={styles.content}>{children}</View>
       <StatusBar style="auto" />
     </KeyboardAvoidingView>
   );

@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
   Title: {
     fontWeight: 800,
     fontSize: 50,
-    // marginTop: "%",
   },
   subTitle: {
     fontSize: 20,

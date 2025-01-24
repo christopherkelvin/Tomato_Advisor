@@ -8,27 +8,27 @@ export const styles = StyleSheet.create({
     marginTop: "15%",
     marginHorizontal: "10%",
   },
-  titlecolor: {
-    marginLeft: "10%",
-    color: "white",
-  },
-  Title: {
-    fontWeight: 800,
-    fontSize: 50,
-  },
-  subTitle: {
-    fontSize: 20,
-    marginLeft: "11%",
-  },
-  content: {
-    marginTop: "70%",
-    width: "100%",
-    position: "absolute",
-    height: "100%",
-    backgroundColor: "#e9e9e9",
-    borderTopRightRadius: radius,
-    borderTopLeftRadius: radius,
-  },
+  // titlecolor: {
+  //   marginLeft: "10%",
+  //   color: "white",
+  // },
+  // Title: {
+  //   fontWeight: 800,
+  //   fontSize: 50,
+  // },
+  // subTitle: {
+  //   fontSize: 20,
+  //   marginLeft: "11%",
+  // },
+  // content: {
+  //   marginTop: "70%",
+  //   width: "100%",
+  //   position: "absolute",
+  //   height: "100%",
+  //   backgroundColor: "#e9e9e9",
+  //   borderTopRightRadius: radius,
+  //   borderTopLeftRadius: radius,
+  // },
   text: {
     fontSize: 30,
     textAlign: "left",

@@ -1,36 +1,48 @@
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
 import { useRegisterHook } from "../../../hooks/useRegisterHook";
 import { AuthWrapper } from "../authWrapper";
-import { styles } from "./register.styles";
+import { styles } from "../login/login.styles";
 export default function Register({ navigation }: any) {
-    const {
-      errors,
-      setErrors,
-      handleInputChange,
-      password,
-      setPassword,
-      email,
-      setEmail,
-      handleRegister,
-    } = useRegisterHook();
+  const {
+    errors,
+    setErrors,
+    handleInputChange,
+    password,
+    setPassword,
+    email,
+    setEmail,
+    handleRegister,
+  } = useRegisterHook();
   return (
     <AuthWrapper>
-      <View>
-        <Text style={styles.text}>Register Here</Text>
-        <TextInput
-          placeholder="Enter your email"
-          value={email}
-          style={styles.textInput}
-          onChangeText={handleInputChange(setEmail)}
-        />
+      <View style={styles.contain}>
+        <Text style={styles.text}>Register</Text>
+        <View style={styles.inputContainer}>
+          <TextInput
+            placeholder="Email"
+            value={email}
+            style={styles.textInput}
+            onChangeText={handleInputChange(setEmail)}
+          />
+          <Image
+            source={require("../../../../assets/email.png")}
+            style={styles.inputLogo}
+          />
+        </View>
         {errors.email && <Text style={styles.error}>{errors.email}</Text>}
-        <TextInput
-          placeholder="Enter your password"
-          value={password}
-          style={styles.textInput}
-          secureTextEntry
-          onChangeText={setPassword}
-        />
+        <View style={styles.inputContainer}>
+          <TextInput
+            placeholder="Password"
+            value={password}
+            style={styles.textInput}
+            secureTextEntry
+            onChangeText={setPassword}
+          />
+          <Image
+            source={require("../../../../assets/unlock.png")}
+            style={styles.inputLogo}
+          />
+        </View>
         {errors.password && <Text style={styles.error}>{errors.password}</Text>}
         <TextInput
           placeholder="Confirm password"
@@ -44,11 +56,9 @@ export default function Register({ navigation }: any) {
         >
           I have an account
         </Text>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={handleRegister}>
-            <Text style={styles.buttonText}>Register</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.button} onPress={handleRegister}>
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
       </View>
     </AuthWrapper>
   );

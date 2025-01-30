@@ -11,6 +11,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Feather from "@expo/vector-icons/Feather";
+import { TabBar } from "./src/components/tabBar/tabBar";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,6 +29,7 @@ export default function App() {
         </Stack.Navigator>
       ) : (
         <Tab.Navigator
+          tabBar={(props) => <TabBar {...props} />}
           screenOptions={{
             headerShown: false,
             tabBarInactiveTintColor: "#000000",
@@ -35,7 +37,7 @@ export default function App() {
           }}
         >
           <Tab.Screen
-            name="Home"
+            name="home"
             component={Home}
             options={{
               title: "Home",
@@ -45,7 +47,7 @@ export default function App() {
             }}
           />
           <Tab.Screen
-            name="Advisor"
+            name="advisor"
             options={{
               title: "Advisor",
               tabBarIcon: ({ color }) => (
@@ -55,7 +57,7 @@ export default function App() {
             component={Profile}
           />
           <Tab.Screen
-            name="History"
+            name="history"
             component={Profile}
             options={{
               title: "History",
@@ -66,11 +68,11 @@ export default function App() {
             }}
           />
           <Tab.Screen
-            name="Profile"
+            name="profile"
             component={Profile}
             options={{
               title: "Profile",
-              tabBarIcon: ({color}) => (
+              tabBarIcon: ({ color }) => (
                 <Feather name="user" size={20} color={color} />
               ),
             }}

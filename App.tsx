@@ -7,11 +7,15 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home } from "./src/screens/normalScreens/home/home";
 import { Profile } from "./src/screens/normalScreens/profile/profile";
 import { UseLoggedInHook } from "./src/hooks/useLoggedInHook";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import Feather from "@expo/vector-icons/Feather";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 export default function App() {
-  const {isLogged } = UseLoggedInHook();
+  const { isLogged } = UseLoggedInHook();
   return (
     <NavigationContainer>
       {isLogged ? (
@@ -23,9 +27,54 @@ export default function App() {
           <Stack.Screen name="Register" component={Register} />
         </Stack.Navigator>
       ) : (
-          <Tab.Navigator>
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Profile" component={Profile} />
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+            tabBarInactiveTintColor: "#000000",
+            tabBarActiveTintColor: "#0000FF",
+          }}
+        >
+          <Tab.Screen
+            name="Home"
+            component={Home}
+            options={{
+              title: "Home",
+              tabBarIcon: ({ color }) => (
+                <Ionicons name="home" size={20} color={color} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Advisor"
+            options={{
+              title: "Advisor",
+              tabBarIcon: ({ color }) => (
+                <MaterialCommunityIcons name="brain" size={20} color="black" />
+              ),
+            }}
+            component={Profile}
+          />
+          <Tab.Screen
+            name="History"
+            component={Profile}
+            options={{
+              title: "History",
+              tabBarIcon: ({ color }) => (
+                <FontAwesome name="history" size={20} color={color} />
+              ),
+              tabBarBadge: 3,
+            }}
+          />
+          <Tab.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              title: "Profile",
+              tabBarIcon: ({color}) => (
+                <Feather name="user" size={20} color={color} />
+              ),
+            }}
+          />
         </Tab.Navigator>
       )}
     </NavigationContainer>

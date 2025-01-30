@@ -1,5 +1,12 @@
-import { Text } from "react-native";
-
+import { SafeAreaView, Text, View } from "react-native";
+import { styles } from "./home.styles";
 export function Home() {
-  return <Text>Home</Text>;
+  return (
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text>Home</Text>
+        <View/>
+      </View>
+    </SafeAreaView>
+  );
 }

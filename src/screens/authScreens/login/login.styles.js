@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { originalColor } from "../authWrapper.styles";
+import { originalColor } from "../../../layout/authLayout/authWrapper.styles";
 const radius = 29;
 const treeSize = 200;
 const Bradius = 30;

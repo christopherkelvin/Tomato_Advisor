@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { styles } from "./login.styles";
 import LoaderPage from "../../../components/loaderPage/loaderPage";
-import { AuthWrapper } from "../authWrapper";
+import { AuthWrapper } from "../../../layout/authLayout/authWrapper";
 import { useLoginHook } from "../../../hooks/useLoginHook";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import {AuthStackParamList} from "../../../types/auth";

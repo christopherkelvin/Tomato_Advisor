@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
 import { useRegisterHook } from "../../../hooks/useRegisterHook";
-import { AuthWrapper } from "../authWrapper";
+import { AuthWrapper } from "../../../layout/authLayout/authWrapper";
 import { styles } from "../login/login.styles";
 export default function Register({ navigation }: any) {
   const {

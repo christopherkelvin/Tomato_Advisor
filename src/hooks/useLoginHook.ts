@@ -3,7 +3,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 
 type Setter<T> = Dispatch<SetStateAction<T>>;
 export const useLoginHook = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<Error>({});
@@ -36,6 +36,7 @@ export const useLoginHook = () => {
      setter(value);
      if (errors) setErrors({});
    };
+  const treeImage=require("../../assets/tomato-tree.png");
   return {
     isLoading,
     email,
@@ -45,6 +46,7 @@ export const useLoginHook = () => {
     errors,
     submitForm,
     setErrors,
-    handleInputChange
+    handleInputChange,
+    treeImage
   };
 };

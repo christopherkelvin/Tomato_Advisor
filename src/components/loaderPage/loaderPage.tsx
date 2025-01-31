@@ -1,6 +1,6 @@
 import { View, Text, Image } from "react-native";
 import { styles } from "./loaderPage.styles";
-const tomatoPic = require("../../../assets/Tomato.png");
+// const tomatoPic = require("../../../assets/Tomato.png");
 export default function LoaderPage() {
   return (
     <View style={styles.container}>

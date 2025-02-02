@@ -53,11 +53,11 @@ export const TabBarButton = ({
         ]}
       >
         <Animated.View style={[iconSize]}>
-          {icon[routeName]({ color: isFocused ? originalColor : "gray" })}
+          {icon[routeName]({ color: isFocused ? "white" : "gray" })}
         </Animated.View>
         <Animated.Text
           style={[
-            { color: isFocused ? "" : "gray" },
+            { color: isFocused ? "white" : "gray" },
             styles.tabBarText,
             animatedTextStyle,
           ]}

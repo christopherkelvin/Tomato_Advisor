@@ -1,19 +1,50 @@
-import React from "react";
-import { View, Platform } from "react-native";
-import { useLinkBuilder, useTheme } from "@react-navigation/native";
+import React, { useState } from "react";
+import { View, Platform, LayoutChangeEvent } from "react-native";
 import { Text, PlatformPressable } from "@react-navigation/elements";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { styles } from "./tabBar.styles";
 
 import { TabBarButton } from "../tabBarButton/tabBarButton";
-import{originalColor} from "../../layout/authLayout/authWrapper.styles"
+import { originalColor } from "../../layout/authLayout/authWrapper.styles";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from "react-native-reanimated";
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
-  const { colors } = useTheme();
-  const { buildHref } = useLinkBuilder();
-  
+  const [dimensions, setDimensions] = useState({ height: 20, width: 100 });
+  const buttonWidth = dimensions.width / state.routes.length;
+  const onTabbarLayout = (e: LayoutChangeEvent) => {
+    setDimensions({
+      height: e.nativeEvent.layout.height,
+      width: e.nativeEvent.layout.width,
+    });
+  };
+  const tabPositionX = useSharedValue(0);
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateX: tabPositionX.value,
+        },
+      ],
+    };
+  });
   return (
-    <View style={styles.tabBar}>
+    <View onLayout={onTabbarLayout} style={styles.tabBar}>
+      <Animated.View
+        style={[
+          animatedStyle,
+          {
+            position: "absolute",
+            backgroundColor: originalColor,
+            marginHorizontal: 7,
+            height: dimensions.height - 15,
+            width: buttonWidth - 15,
+            borderRadius: 30,
+          },
+        ]}
+      />
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -26,6 +57,9 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
         const isFocused = state.index === index;
 
         const onPress = () => {
+          tabPositionX.value = withSpring(buttonWidth * index, {
+            duration: 1500,
+          });
           const event = navigation.emit({
             type: "tabPress",
             target: route.key,
@@ -51,7 +85,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             onLongPress={onLongPress}
             isFocused={isFocused}
             routeName={route.name}
-            color={isFocused ? originalColor : 'gray'}
+            color={isFocused ? 'white' : "gray"}
             label={label}
           />
         );

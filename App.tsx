@@ -8,10 +8,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Home } from "./src/screens/normalScreens/home/home";
 import { Profile } from "./src/screens/normalScreens/profile/profile";
 import { UseLoggedInHook } from "./src/hooks/useLoggedInHook";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import Feather from "@expo/vector-icons/Feather";
 import { TabBar } from "./src/components/tabBar/tabBar";
 
 const Stack = createNativeStackNavigator();
@@ -42,18 +38,12 @@ export default function App() {
             component={Home}
             options={{
               title: "Home",
-              tabBarIcon: ({ color }) => (
-                <Ionicons name="home" size={20} color={color} />
-              ),
             }}
           />
           <Tab.Screen
             name="advisor"
             options={{
               title: "Advisor",
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="brain" size={20} color="black" />
-              ),
             }}
             component={Profile}
           />
@@ -61,11 +51,7 @@ export default function App() {
             name="history"
             component={Profile}
             options={{
-              title: "History",
-              tabBarIcon: ({ color }) => (
-                <FontAwesome name="history" size={20} color={color} />
-              ),
-              tabBarBadge: 3,
+              title: "  History",
             }}
           />
           <Tab.Screen
@@ -73,9 +59,6 @@ export default function App() {
             component={Profile}
             options={{
               title: "Profile",
-              tabBarIcon: ({ color }) => (
-                <Feather name="user" size={20} color={color} />
-              ),
             }}
           />
         </Tab.Navigator>

@@ -3,6 +3,7 @@ import { Pressable, Text } from "react-native";
 import { icon } from "../../constants/icon";
 import { styles } from "./tabBarButton.styles";
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
+import { originalColor } from "../../layout/authLayout/authWrapper.styles";
 interface TabBarButtonProps {
   onPress: Function;
   onLongPress: Function;
@@ -21,27 +22,48 @@ export const TabBarButton = ({
 }: TabBarButtonProps) => {
     const scale = useSharedValue(0);
     const animatedTextStyle = useAnimatedStyle(() => {
-        const opacity = interpolate(scale.value, [0, 1], [1, 0]);
-        return{opacity}
+      const opacity = interpolate(scale.value, [0, 1], [0, 1]);
+      return { opacity };
     });
-  useEffect(() => {
-    scale.value = withSpring(
-      typeof isFocused === "boolean" ? (isFocused ? 0 : 1) : isFocused,
-      { duration: 350 }
-    );
-  }, [scale, isFocused]);
-  return (
-    <Pressable
-      onPress={onPress}
-      onLongPress={onLongPress}
-      style={styles.tabBarContainer}
-    >
-      {icon[routeName]({ color: isFocused ? "black" : "gray" })}
-      <Animated.Text
-        style={[{ color: isFocused ? "black" : "gray" }, styles.tabBarText,animatedTextStyle]}
+    const iconSize = useAnimatedStyle(() => {
+      const scaleValue = interpolate(scale.value, [1, 0], [1, 1.5]);
+      const top = interpolate(scale.value, [1, 0], [0, 7]);
+      return {
+        transform: [
+          {
+            scale: scaleValue,
+          },
+        ],
+        top,
+      };
+    });
+    useEffect(() => {
+      scale.value = withSpring(
+        typeof isFocused === "boolean" ? (isFocused ? 0 : 1) : isFocused,
+        { duration: 350 }
+      );
+    }, [scale, isFocused]);
+    return (
+      <Pressable
+        onPress={onPress}
+        onLongPress={onLongPress}
+        style={[
+          styles.tabBarContainer,
+          // { backgroundColor: isFocused ? "pink" : "" },
+        ]}
       >
-        {label}
-      </Animated.Text>
-    </Pressable>
-  );
+        <Animated.View style={[iconSize]}>
+          {icon[routeName]({ color: isFocused ? originalColor : "gray" })}
+        </Animated.View>
+        <Animated.Text
+          style={[
+            { color: isFocused ? "" : "gray" },
+            styles.tabBarText,
+            animatedTextStyle,
+          ]}
+        >
+          {label}
+        </Animated.Text>
+      </Pressable>
+    );
 };

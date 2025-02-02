@@ -6,7 +6,7 @@ export function Home() {
   return (
     <ThemeLayout>
       <View>
-        <Text>Home</Text>
+        <Text style={{ color:'black' }}>Home</Text>
         <View/>
       </View>
     </ThemeLayout>

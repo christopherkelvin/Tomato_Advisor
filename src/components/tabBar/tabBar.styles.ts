@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   tabBar: {
     position: "absolute",
-    bottom: 50,
+    bottom: 40,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    marginHorizontal: 50,
+    marginHorizontal: 70,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 30,
+    overflow: "hidden",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.1,

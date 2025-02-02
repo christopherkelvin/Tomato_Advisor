@@ -37,7 +37,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
           animatedStyle,
           {
             position: "absolute",
-            backgroundColor: originalColor,
+            backgroundColor: 'white',
             marginHorizontal: 7,
             height: dimensions.height - 15,
             width: buttonWidth - 15,
@@ -85,7 +85,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             onLongPress={onLongPress}
             isFocused={isFocused}
             routeName={route.name}
-            color={isFocused ? 'white' : "gray"}
+            color={isFocused ? 'black' : "black"}
             label={label}
           />
         );

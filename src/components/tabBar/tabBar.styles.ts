@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-
+import { originalColor } from "../../layout/authLayout/authWrapper.styles";
 export const styles = StyleSheet.create({
   tabBar: {
     position: "absolute",
@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginHorizontal: 70,
-    backgroundColor: "white",
+    backgroundColor: originalColor,
     borderRadius: 30,
     overflow: "hidden",
     shadowColor: "#000",
@@ -15,6 +15,4 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 10,
   },
-
-
 });
